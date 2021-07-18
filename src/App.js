@@ -1,5 +1,10 @@
+import Map from "./Map";
 function App() {
-  return <div>App Running</div>;
+  return (
+    <div>
+      <Map />
+    </div>
+  );
 }
 
 export default App;
