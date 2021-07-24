@@ -24,20 +24,20 @@ const Search = () => {
   const handleOnSearch = (string, results) => {
     setSearchValue(string);
   };
+
   //================= callback function on selecting an option ==============//
   const handleOnSelect = (item) => {
     const foundCountries = fuse
       .search(`=${item.name}`)
       .map((result) => ({ ...result.item }));
-
     setFilteredCountries(foundCountries);
-
     //setting the new map viewport based on search results
     resetViewPort(foundCountries);
     //setting the new graph based on search results
     drawGraph(foundCountries);
   };
 
+  //================= function to reset view on data change ==============//
   const resetViewPort = (foundCountries) => {
     {
       foundCountries.length > 0 &&
@@ -48,7 +48,7 @@ const Search = () => {
         });
     }
   };
-
+  //================= function to draw graph on filtered data==============//
   const drawGraph = (foundCountries) => {
     const countrynames = foundCountries.map((item) => item.name);
     const countryData = foundCountries.map((item) => item.population);
@@ -68,11 +68,13 @@ const Search = () => {
     //updating the chart values
     setDataChart(chartObj);
   };
+
   //================== Function will clear the search text ====================================//
   const handleOnClear = () => {
     setFilteredCountries([]);
     setDataChart({});
   };
+
   //================== Function will search based on keyword ====================================//
   const handleBtnSearch = () => {
     /*===========================================================================================
@@ -109,7 +111,7 @@ const Search = () => {
         />
       </div>
       <div>
-        <button className="btn" onClick={handleBtnSearch}>
+        <button className="search-btn" onClick={handleBtnSearch}>
           Search
         </button>
       </div>
