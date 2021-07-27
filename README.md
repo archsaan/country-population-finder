@@ -2,8 +2,8 @@
 
 # Create a account mapbox website[https://account.mapbox.com/] and create a token
 
-In the project directory, create a file called .env.local and
-save value as REACT_APP_MAPBOX_TOKEN= <Your Token>
+In the project directory, find .env.local and
+update value with your token REACT_APP_MAPBOX_TOKEN= <Your Token>
 
 ### `npm install`
 
